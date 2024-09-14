@@ -7,6 +7,8 @@ import { LS, LSKeys } from "./ls";
 import { appSt } from "./style.css";
 import { ThxLayout } from "./thx/ThxLayout";
 import { Radio } from "@alfalab/core-components/radio";
+import {Collapse} from "@alfalab/core-components/collapse";
+import {List} from "@alfalab/core-components/list";
 
 export const App = () => {
   const [loading, setLoading] = useState(false);
@@ -50,18 +52,31 @@ export const App = () => {
         </Typography.TitleResponsive>
 
         <Radio
+          className={appSt.radio}
           size={24}
           checked={true}
-          label="Альфа-чек — 99 руб. в месяц"
+          label="Альфа Смарт — 299 руб. в месяц"
           disabled={false}
-          hint="Присылаем пуш-уведомления, если не доходят — отправляем смс"
+          hint="Дополнительные возможности, вместе с пуш-уведомлениями"
           block={true}
         />
+        <Collapse collapsedLabel='Что входит' expandedLabel='Скрыть' className={appSt.collapse}>
+          <List tag='ul' marker='•'>
+            <List.Item>+1 топовая категория кэшбэка</List.Item>
+            <List.Item>+1 попытка крутить барабан суперкэшбэка</List.Item>
+            <List.Item>Секретная подборка партнёров с кэшбэков</List.Item>
+            <List.Item>Увеличенный лимит кэшбэка +1 % годовых</List.Item>
+            <List.Item>Бесплатные уведомления</List.Item>
+            <List.Item>Бесплатные переводы</List.Item>
+            <List.Item>Бесплатное снятие наличных</List.Item>
+            <List.Item>Скидка 20 % на комиссию на бирже</List.Item>
+          </List>
+        </Collapse>
       </div>
 
       <div className={appSt.bottomBtn}>
         <ButtonMobile loading={loading} block view="primary" onClick={submit}>
-          Продолжить
+          Подключить
         </ButtonMobile>
       </div>
     </>

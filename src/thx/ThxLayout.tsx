@@ -19,7 +19,7 @@ export const ThxLayout = () => {
             Спасибо за участие в эксперименте
           </Typography.TitleResponsive>
           <Typography.Text tag="p" view="primary-medium" defaultMargins={false}>
-            Сервис находится в разработке. Как только он будет доступен,мы
+            Сервис находится в разработке. Как только он будет доступен, мы
             обязательно вам сообщим.
           </Typography.Text>
         </div>

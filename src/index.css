@@ -1,3 +1,7 @@
+:root {
+  --list-item-margin: var(--gap-16);
+}
+
 body {
   margin: 0;
   font-size: 16px;

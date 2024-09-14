@@ -24,8 +24,18 @@ const box = style({
   border: "2px solid #F3F4F5",
 });
 
+const collapse = style({
+  marginLeft: "30px",
+});
+
+const radio = style({
+  maxWidth: '296px'
+})
+
 export const appSt = {
   bottomBtn,
   container,
   box,
+  collapse,
+  radio
 };
