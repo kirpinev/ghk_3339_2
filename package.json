@@ -1,11 +1,11 @@
 {
-  "name": "ghk_3339_1",
+  "name": "ghk_3339_2",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build --base=/ghk_3339_1/",
+    "build": "tsc && vite build --base=/ghk_3339_2/",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
@@ -15,8 +15,7 @@
     "@vanilla-extract/recipes": "^0.5.3",
     "@vanilla-extract/vite-plugin": "^4.0.10",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "vite-plugin-mkcert": "^1.17.6"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",
