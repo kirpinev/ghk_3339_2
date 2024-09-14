@@ -31,7 +31,7 @@ export const App = () => {
   return (
     <>
       <div className={appSt.container}>
-        <div style={{ display: "flex", alignItems: "center" }}>
+        <div  style={{ display: "flex", alignItems: "center", marginTop: "1.5rem" }}>
           <img src={alfa} height={48} style={{ objectFit: "contain" }} />
           <Typography.Text
             style={{ maxWidth: "230px", marginLeft: "18px" }}
