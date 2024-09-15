@@ -32,7 +32,7 @@ export const App = () => {
     <>
       <div className={appSt.container}>
         <div  style={{ display: "flex", alignItems: "center", marginTop: "1.5rem" }}>
-          <img src={alfa} height={48} style={{ objectFit: "contain" }} />
+          <img alt="Картинка карты" src={alfa} height={48} style={{ objectFit: "contain" }} />
           <Typography.Text
             style={{ maxWidth: "230px", marginLeft: "18px" }}
             view="primary-medium"
