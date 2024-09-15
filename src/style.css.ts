@@ -1,4 +1,4 @@
-import { style } from "@vanilla-extract/css";
+import { globalStyle, style } from "@vanilla-extract/css";
 
 const bottomBtn = style({
   position: "fixed",
@@ -25,12 +25,20 @@ const box = style({
 });
 
 const collapse = style({
-  marginLeft: "30px",
+  marginLeft: "37px",
+});
+
+globalStyle(`${collapse} > div`, {
+  marginLeft: "-21px",
 });
 
 const radio = style({
   maxWidth: '296px'
 })
+
+globalStyle(`${radio} > span > span:first-child`, {
+  fontWeight: "500",
+});
 
 export const appSt = {
   bottomBtn,

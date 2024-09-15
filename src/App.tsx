@@ -42,7 +42,7 @@ export const App = () => {
         </div>
 
         <Typography.TitleResponsive
-          style={{ marginTop: "1.5rem" }}
+          style={{ marginTop: "1.5rem", marginBottom: "0.5rem" }}
           tag="h3"
           view="xsmall"
           font="system"
