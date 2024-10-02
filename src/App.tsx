@@ -7,17 +7,26 @@ import { LS, LSKeys } from "./ls";
 import { appSt } from "./style.css";
 import { ThxLayout } from "./thx/ThxLayout";
 import { Radio } from "@alfalab/core-components/radio";
-import {Collapse} from "@alfalab/core-components/collapse";
-import {List} from "@alfalab/core-components/list";
+import { Collapse } from "@alfalab/core-components/collapse";
+import { List } from "@alfalab/core-components/list";
+import { sendDataToGA } from "./utils/events.ts";
 
 export const App = () => {
   const [loading, setLoading] = useState(false);
   const [thxShow, setThx] = useState(LS.getItem(LSKeys.ShowThx, false));
+  const [expanded, setExpanded] = useState<boolean>(false);
+  const [triggered, setTriggered] = useState<boolean>(false);
+
+  const clickDetails = () => {
+    window.gtag("event", "sub_hidden_3339_2_click");
+  };
 
   const submit = useCallback(() => {
     setLoading(true);
-    // sendDataToGA({})
-    Promise.resolve().then(() => {
+    sendDataToGA({
+      sub_choice: "AlfaSmart",
+      sub_hidden: expanded ? "Yes" : "No",
+    }).then(() => {
       LS.setItem(LSKeys.ShowThx, true);
       setThx(true);
       setLoading(false);
@@ -31,8 +40,15 @@ export const App = () => {
   return (
     <>
       <div className={appSt.container}>
-        <div  style={{ display: "flex", alignItems: "center", marginTop: "1.5rem" }}>
-          <img alt="Картинка карты" src={alfa} height={48} style={{ objectFit: "contain" }} />
+        <div
+          style={{ display: "flex", alignItems: "center", marginTop: "1.5rem" }}
+        >
+          <img
+            alt="Картинка карты"
+            src={alfa}
+            height={48}
+            style={{ objectFit: "contain" }}
+          />
           <Typography.Text
             style={{ maxWidth: "230px", marginLeft: "18px" }}
             view="primary-medium"
@@ -60,8 +76,19 @@ export const App = () => {
           hint="Дополнительные возможности, вместе с пуш-уведомлениями"
           block={true}
         />
-        <Collapse collapsedLabel='Что входит' expandedLabel='Скрыть' className={appSt.collapse}>
-          <List tag='ul' marker='•'>
+        <Collapse
+          collapsedLabel="Что входит"
+          expandedLabel="Скрыть"
+          className={appSt.collapse}
+          onExpandedChange={(expanded) => {
+            clickDetails();
+            setTriggered(true);
+            if (!triggered) {
+              setExpanded(expanded);
+            }
+          }}
+        >
+          <List tag="ul" marker="•">
             <List.Item>+1 топовая категория кэшбэка</List.Item>
             <List.Item>+1 попытка крутить барабан суперкэшбэка</List.Item>
             <List.Item>Секретная подборка партнёров с кэшбэков</List.Item>
