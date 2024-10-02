@@ -1,6 +1,6 @@
 import { ButtonMobile } from "@alfalab/core-components/button/mobile";
 import { Typography } from "@alfalab/core-components/typography";
-import { useCallback, useState } from "react";
+import { useState } from "react";
 
 import alfa from "./assets/alfa-card.png";
 import { LS, LSKeys } from "./ls";
@@ -15,13 +15,12 @@ export const App = () => {
   const [loading, setLoading] = useState(false);
   const [thxShow, setThx] = useState(LS.getItem(LSKeys.ShowThx, false));
   const [expanded, setExpanded] = useState<boolean>(false);
-  const [triggered, setTriggered] = useState<boolean>(false);
 
   const clickDetails = () => {
     window.gtag("event", "sub_hidden_3339_2_click");
   };
 
-  const submit = useCallback(() => {
+  const submit = () => {
     setLoading(true);
     sendDataToGA({
       sub_choice: "AlfaSmart",
@@ -31,7 +30,7 @@ export const App = () => {
       setThx(true);
       setLoading(false);
     });
-  }, []);
+  };
 
   if (thxShow) {
     return <ThxLayout />;
@@ -80,12 +79,9 @@ export const App = () => {
           collapsedLabel="Что входит"
           expandedLabel="Скрыть"
           className={appSt.collapse}
-          onExpandedChange={(expanded) => {
+          onExpandedChange={() => {
             clickDetails();
-            setTriggered(true);
-            if (!triggered) {
-              setExpanded(expanded);
-            }
+            setExpanded(true);
           }}
         >
           <List tag="ul" marker="•">
